@@ -1,0 +1,25 @@
+let myform=document.querySelector("form");
+let taskinpt=document.getElementById("task");
+let priorityinpt=document.getElementById("priority");
+let tbody=document.querySelector("tbody");
+let allData=[]
+
+myform.addEventListener("submit",function(e){
+    e.preventDefault();
+    let data={}
+    data.input1=taskinpt.value;
+    data.input2=priorityinpt.value;
+    allData.push(data)
+
+tbody.innerHTML=null
+allData.map((ele)=>{
+    let row=document.createElement("tr");
+    let td1=document.createElement('td');
+    let td2=document.createElement('td');
+
+    td1.innerText=ele.input1
+    td2.innerText=ele.input2
+    row.append(td1,td2)
+    tbody.append(row);
+});
+});
